@@ -6,6 +6,7 @@ __pycache__/
 *.xml
 scratch.py
 .DS_Store
+*.html
 README_files/libs/bootstrap/bootstrap-icons.css
 README_files/libs/bootstrap/bootstrap-icons.woff
 README_files/libs/bootstrap/bootstrap.min.css
