@@ -30,9 +30,20 @@ pip install -r requirements.txt
 ````
 ## Usage
 
+### ⌨️ CLI
+
 ```sh
 python gopro_timestamp_extractor.py <input_directory> --recursive -- json --output <filename>
 ```
+
+### Script
+
+```python
+from gopro_timestamp_extractor import GoProTimestampExtractor
+
+extractor = GoProTimestampExtractor()
+extractor.process_directory(input_directory, recursive=True)
+
 
 ## Options
 
