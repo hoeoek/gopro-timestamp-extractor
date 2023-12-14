@@ -8,7 +8,7 @@ This script is designed to extract and process the actual timestamp metadata fro
 
 ## Dependencies
 
-`ffmpeg` is required to extract the metadata from the MP4 files, and `ffprobe` is required to extract the creation time and duration of the video files. Download and install these tools from the [FFmpeg website](https://ffmpeg.org/download.html).
+This script requires Python 3.10 or higher. `ffmpeg` is required to extract the metadata from the MP4 files, and `ffprobe` is required to extract the creation time and duration of the video files. Download and install these tools from the [FFmpeg website](https://ffmpeg.org/download.html).
 
 ## Installation
 
@@ -21,6 +21,7 @@ git clone https://github.com/hoeoek/gopro-timestamp-extractor.git
 I recommend using a virtual environment to install the Python dependencies in the `requirements.txt` file. You can create and activate a virtual environment using the following commands:
 
 ```sh
+cd gopro-timestamp-extractor
 python -m venv venv
 source venv/bin/activate
 ```
