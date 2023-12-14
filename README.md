@@ -18,7 +18,6 @@ Clone this repository:
 git clone https://github.com/hoeoek/gopro-timestamp-extractor.git
 ```
 
-
 I recommend using a virtual environment to install the Python dependencies in the `requirements.txt` file. You can create and activate a virtual environment using the following commands:
 
 ```sh
