@@ -82,6 +82,8 @@ class GoProTimestampExtractor:
         probe = ffmpeg.probe(file_path)
         creation_time_str = probe['format']["tags"]["creation_time"]
         creation_time = datetime.datetime.strptime(creation_time_str, "%Y-%m-%dT%H:%M:%S.%fZ")
+        # Make sure the datetime object is timezone-aware:
+        creation_time = creation_time.replace(tzinfo=datetime.timezone.utc)
         duration_sec = float(probe['format']["duration"])
         return creation_time, duration_sec
 
@@ -155,18 +157,24 @@ def main():
     args = parse_args()
     extractor = GoProTimestampExtractor()
     results = extractor.process_videos(args.folder, recursive=args.recursive, json_output=args.json, out_file=args.output)
-    
+
     if args.output:
         with open(args.output, "w") as f:
             if args.json:
-                json.dump(results, f, ensure_ascii=False, indent=4)
+                formatted_results = [format_datetime(result) for result in results]
+                json.dump(formatted_results, f, indent=4)
             else:
                 results.to_csv(f, index=False)
     else:
         if args.json:
-            print(json.dumps(results, ensure_ascii=False, indent=4))
+            formatted_results = [format_datetime(result) for result in results]
+            print(json.dumps(formatted_results, indent=4))
         else:
             print(results.to_string(index=False))
+
+def format_datetime(result):
+    return {k: v.isoformat() + 'Z' if isinstance(v, datetime.datetime) else v for k, v in result.items()}
+
     
 
 def parse_args():
