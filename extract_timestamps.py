@@ -159,10 +159,12 @@ def main():
     if args.output:
         with open(args.output, "w") as f:
             if args.json:
+                json.dump(results, f, ensure_ascii=False, indent=4)
+            else:
                 results.to_csv(f, index=False)
     else:
         if args.json:
-            print(results)
+            print(json.dumps(results, ensure_ascii=False, indent=4))
         else:
             print(results.to_string(index=False))
     
