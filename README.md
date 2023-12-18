@@ -1,5 +1,7 @@
 # GoPro Timestamp Extractor
 
+![Util badge](https://img.shields.io/badge/utility-blue) ![Active badge](https://img.shields.io/badge/active-red)
+
 > [!NOTE]
 > This script is still a work in progress. It is not yet ready for use.
 
@@ -7,7 +9,7 @@
 
 When doing continuous recording (session) with a GoPro, the video is split into multiple files. For some reason, the metadata regarding start time is the same for all files in a session. This makes it difficult to determine the start and stop times of each file.
 
-This script is designed to extract and process the actual timestamp metadata from GoPro MP4 files. It specifically targets files with a naming convention of 'GXzzxxxx.mp4', where 'X' indicates HEVC encoding, 'zz' is the chapter number, and 'xxxx' is the file number to indicate the order in which the files were recorded. Then, it uses the creation time and duration of the video file to calculate the start and stop times of each file.
+This script is designed to extract and process the actual timestamp metadata from GoPro (Hero 12) MP4 files. It specifically targets files with a naming convention of 'GXzzxxxx.mp4', where 'X' indicates HEVC encoding, 'zz' is the chapter number, and 'xxxx' is the file number to indicate the order in which the files were recorded. Then, it uses the creation time and duration of the video file to calculate the start and stop times of each file.
 
 ## Progress/TODO
 
